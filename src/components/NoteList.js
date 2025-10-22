@@ -1,12 +1,12 @@
 import React from 'react';
 import Note from './Note';
-import './NotesList.css';
+import './NoteList.css';
 
-function NotesList({ notes, updateNote, deleteNote }) {
+function NoteList({ note, updateNote, deleteNote }) {
   // Show message if no notes exist
-  if (notes.length === 0) {
+  if (note.length === 0) {
     return (
-      <div className="notes-empty">
+      <div className="note-empty">
         <svg width="120" height="120" viewBox="0 0 24 24">
           <path
             fill="#e0e0e0"
@@ -16,15 +16,15 @@ function NotesList({ notes, updateNote, deleteNote }) {
                4.997 0 017 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"
           />
         </svg>
-        <p className="notes-empty-text">Notes you add appear here</p>
+        <p className="note-empty-text">Note you add appear here</p>
       </div>
     );
   }
 
   return (
-    <div className="notes-container">
-      <div className="notes-grid">
-        {notes.map((note) => (
+    <div className="note-container">
+      <div className="note-grid">
+        {note.map((note) => (
           <Note
             key={note.id}
             note={note}
@@ -37,4 +37,4 @@ function NotesList({ notes, updateNote, deleteNote }) {
   );
 }
 
-export default NotesList;
+export default NoteList;
