@@ -4,6 +4,7 @@ import './NoteForm.css';
 function NoteForm({ addNote }) {
   // State to track if form is expanded
   const [isExpanded, setIsExpanded] = useState(false);
+
   // State for note title and content
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
@@ -11,9 +12,11 @@ function NoteForm({ addNote }) {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent page reload
+
     // Only add note if there's content
     if (title.trim() || content.trim()) {
       addNote({ title, content });
+
       // Clear form after submission
       setTitle('');
       setContent('');
